@@ -1,0 +1,10 @@
+<div *ngIf="this.userAuth==true then auth else noauth">
+</div>
+
+<ng-template #auth>
+    <p>User is Authorized!</p>
+</ng-template>
+
+<ng-template #noauth>
+    <p>User is not Authorized!</p>
+</ng-template>

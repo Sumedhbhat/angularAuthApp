@@ -1,0 +1,31 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Name"
+    name="name"
+    #name="ngModel"
+    [(ngModel)]="this.service.registerFormData.name"
+    required
+  >
+  <input
+    type="email"
+    class="form-control"
+    placeholder="Email"
+    #email="ngModel"
+    name="email"
+    [(ngModel)]="this.service.registerFormData.email"
+    required
+  />
+  <input
+    type="password"
+    class="form-control"
+    placeholder="Password"
+    name="password"
+    #password="ngModel"
+    [(ngModel)]="this.service.registerFormData.password"
+    required
+  />
+  <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+</form>

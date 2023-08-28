@@ -1,0 +1,23 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+  <input
+    type="email"
+    class="form-control"
+    placeholder="Email"
+    #email="ngModel"
+    name="email"
+    [(ngModel)]="service.loginFormData.email"
+    required
+  />
+  <input
+    type="password"
+    class="form-control"
+    name="password"
+    #password="ngModel"
+    placeholder="Password"
+    [(ngModel)]="service.loginFormData.password"
+    required
+  />
+  <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+</form>
