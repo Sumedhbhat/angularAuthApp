@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OQjaax+QT9JLd7dHoR2YAddaoBax7z3cPwWwkNGsohDjPKqPnVlzb03dj6SCsMsKVVKhaBZCQf3Xjb6NPG4/Dw==",
+  "dgSpecHash": "rmuXSy0DrbZOrdNr+ljgykWRLGySI/tiwyscb7y4DI6APWcETYkEkKrGpXv9Vi1GVE5xsQKnATfq8nnIyB+mEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\SimpleAPI\\SimpleAPI\\SimpleAPI.csproj",
+  "projectFilePath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\angularAuthApp\\AuthApi\\SimpleAPI\\SimpleAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sumedh.Bhat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Sumedh.Bhat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

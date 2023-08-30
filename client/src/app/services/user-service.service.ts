@@ -16,7 +16,7 @@ export class UserServiceService {
   registerFormData: UserModel = new UserModel();
   url: string = 'http://localhost:5225/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(public http: HttpClient) {}
 
   setUser(user: UserModel, jwt: string) {
     localStorage.setItem(
@@ -33,7 +33,7 @@ export class UserServiceService {
   }
 
   logOutUser() {
-    this.http.post(this.url+'Logout',{});
+    this.http.post(this.url + 'Logout', {});
     localStorage.removeItem('userInfo');
     localStorage.removeItem('jwt');
   }
@@ -49,11 +49,8 @@ export class UserServiceService {
     return this.http.post(this.url + 'register', this.registerFormData);
   }
 
-  checkUserAuth() {
-    var headers: HttpHeaders = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + localStorage.getItem('jwt')
-    );
+  checkUserAuth(headers: HttpHeaders) {
+    console.log(this);
     return this.http.get(this.url + 'checkAuth', { headers });
   }
 }

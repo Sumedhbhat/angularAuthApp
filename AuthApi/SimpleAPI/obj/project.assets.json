@@ -8452,11 +8452,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sumedh.Bhat\\source\\repos\\SimpleAPI\\SimpleAPI\\SimpleAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Sumedh.Bhat\\source\\repos\\angularAuthApp\\AuthApi\\SimpleAPI\\SimpleAPI.csproj",
       "projectName": "SimpleAPI",
-      "projectPath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\SimpleAPI\\SimpleAPI\\SimpleAPI.csproj",
+      "projectPath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\angularAuthApp\\AuthApi\\SimpleAPI\\SimpleAPI.csproj",
       "packagesPath": "C:\\Users\\Sumedh.Bhat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\SimpleAPI\\SimpleAPI\\obj\\",
+      "outputPath": "C:\\Users\\Sumedh.Bhat\\source\\repos\\angularAuthApp\\AuthApi\\SimpleAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

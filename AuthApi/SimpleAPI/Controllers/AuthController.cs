@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleAPI.Dtos;
+using SimpleAPI.Filter;
 using SimpleAPI.Helpers;
 using SimpleAPI.Models;
 
@@ -77,8 +78,10 @@ namespace SimpleAPI.Controllers
         }
 
         [HttpGet("checkAuth")]
+        [ServiceFilter(typeof(ApiAuthFilter))]
         public IActionResult checkAuth()
         {
+            /*
             try
             {
                 var auth=Request.Headers.Authorization;
@@ -91,7 +94,8 @@ namespace SimpleAPI.Controllers
             catch(Exception _)
             {
                 return Unauthorized();
-            }
+            }*/
+            return Ok(new { message = "Reached Here" });
         }
     }
 
