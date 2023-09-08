@@ -9,8 +9,7 @@
         }
         public async Task InvokeAsync(HttpContext context)
         {
-            
-
+            _next(context);
         }
     }
 }

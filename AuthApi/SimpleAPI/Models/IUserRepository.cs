@@ -7,5 +7,7 @@ namespace SimpleAPI.Models
         User Create(User user);
         User GetUserByEmail(string email);
         User GetById(int id);
+
+        User DeleteUserById(int id);
     }
 }

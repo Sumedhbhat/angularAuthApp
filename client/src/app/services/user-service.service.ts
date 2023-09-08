@@ -8,6 +8,7 @@ import {
 import { NgForm } from '@angular/forms';
 import { LoginResponse } from '../models/login-response';
 
+let goThroughInterceptor = 'Go-Through-Interceptor';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +16,7 @@ export class UserServiceService {
   loginFormData: UserModel = new UserModel();
   registerFormData: UserModel = new UserModel();
   url: string = 'http://localhost:5225/api/';
+  authorized: boolean = false;
 
   constructor(public http: HttpClient) {}
 
@@ -33,12 +35,14 @@ export class UserServiceService {
   }
 
   logOutUser() {
+    this.authorized = false;
     this.http.post(this.url + 'Logout', {});
     localStorage.removeItem('userInfo');
     localStorage.removeItem('jwt');
   }
 
   loginUser() {
+    this.authorized = true;
     return this.http.post<LoginResponse>(
       this.url + 'login',
       this.loginFormData
@@ -49,8 +53,8 @@ export class UserServiceService {
     return this.http.post(this.url + 'register', this.registerFormData);
   }
 
-  checkUserAuth(headers: HttpHeaders) {
-    console.log(this);
+  checkUserAuth() {
+    const headers = new HttpHeaders().set('skip', `false`);
     return this.http.get(this.url + 'checkAuth', { headers });
   }
 }

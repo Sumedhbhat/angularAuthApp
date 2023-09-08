@@ -34,5 +34,16 @@ namespace SimpleAPI.Models
         {
             return _context.Users.FirstOrDefault(u => u.Id == id);
         }
+        public User DeleteUserById(int id)
+        {
+            var user= _context.Users.Find(id);
+            if (user == null)
+            {
+                return null;
+            }
+             _context.Users.Remove(user);
+            _context.SaveChanges();
+            return user;
+        }
     }
 }

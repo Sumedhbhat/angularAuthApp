@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authMiddleWear.wrapApiWithAuth(this.service.checkUserAuth).subscribe({
+    this.service.checkUserAuth().subscribe({
       next: (res: any) => {
         console.log(res);
         this.userAuth = true;
