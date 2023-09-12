@@ -13,7 +13,8 @@ namespace SimpleAPI.Models
         public string Email { get; set; } = "";
 
         public int Salary { get; set; }
-        public int Mobile { get; set; }
+        [Column(TypeName ="nvarchar(20)")]
+        public string Mobile { get; set; } = "";
 
     }
 }

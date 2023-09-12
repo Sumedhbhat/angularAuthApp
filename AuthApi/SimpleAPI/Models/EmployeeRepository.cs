@@ -42,9 +42,9 @@ namespace SimpleAPI.Models
             return result;
         }
 
-        public Employee GetById(int Id)
+        public async Task<Employee> GetById(int Id)
         {
-            var employee = _context.Employees.Find(Id);
+            var employee =await _context.Employees.FindAsync(Id);
             if(employee == null)
             {
                 return null;
@@ -71,7 +71,7 @@ namespace SimpleAPI.Models
 
             var data=await (from employees 
                             in _context.Employees 
-                            where employees.Name.Contains(search) || employees.Email.Contains(search) || employees.Id.ToString().Contains(search)
+                            where employees.Name.Contains(search) || employees.Email.Contains(search) || employees.Id.ToString().Contains(search) || employees.Mobile.Contains(search)
                             select employees)
                             .ToListAsync();
             if(data.Count == 0)

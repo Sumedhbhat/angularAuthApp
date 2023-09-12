@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleAPI.Dtos;
 using SimpleAPI.Models;
+using System.Threading.Tasks.Dataflow;
 
 namespace SimpleAPI.Controllers
 {
@@ -19,9 +20,9 @@ namespace SimpleAPI.Controllers
             var employees = await _employeeRepository.GetAllEmployees();
             if(employees == null)
             {
-                return NotFound();
+                return NotFound(new {message="No Data Found"});
             }
-            return Ok(new { employees });
+            return Ok(new { message="All Employee Data Returned",employees });
         }
 
         [HttpDelete("{id}")]
@@ -54,14 +55,14 @@ namespace SimpleAPI.Controllers
             var data =await _employeeRepository.SearchEmployees(search);
             if (data == null)
             {
-                return NotFound(new {message="No user has been found related to the query" });
+            return Ok(new {message=$"No users found matching the query {search}", employees = new List<Employee>()});
             }
-            return Ok(data);
+            return Ok(new { message = $"Users Found with query {search}", employees=data });
         }
 
         [HttpGet("order")]
         public async Task<IActionResult> Order(
-            [FromQuery(Name = "orderParam")]
+            [FromQuery(Name = "prop")]
         string param)
         {
             var ordered=await _employeeRepository.OrderEmployees(param);
@@ -85,6 +86,19 @@ namespace SimpleAPI.Controllers
             }
             return Ok(new {message="User Created",employee=createdEmployee});
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetEmployeeData(int id)
+        {
+           var employee=await _employeeRepository.GetById(id);
+            if(employee == null)
+            {
+                return NotFound(new { message = "User with Id not found" });
+            }
+            return Ok(new { message = $"Employee details fetched for id {id}", employee });
+
+        }
+
 
     }
 }

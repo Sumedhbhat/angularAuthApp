@@ -54,7 +54,6 @@ export class UserServiceService {
   }
 
   checkUserAuth() {
-    const headers = new HttpHeaders().set('skip', `false`);
-    return this.http.get(this.url + 'checkAuth', { headers });
+    return this.http.get(this.url + 'checkAuth');
   }
 }

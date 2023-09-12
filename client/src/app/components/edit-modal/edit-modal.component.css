@@ -1,0 +1,54 @@
+.modal-header {
+  padding: 2px 16px;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modalFooter {
+  padding: 2px 16px;
+}
+
+/* Modal Content */
+.modal-content {
+  z-index: 100;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: 10px;
+  padding: 10px;
+  justify-content: flex-start;
+  
+}
+
+.backdrop {
+  width: 100vw;
+  z-index: 3;
+  height: 100vh;
+  background-color: #888;
+  opacity: 40%;
+  position: absolute;
+  backdrop-filter: blur(100px);
+  top: 0;
+  left: 0;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}

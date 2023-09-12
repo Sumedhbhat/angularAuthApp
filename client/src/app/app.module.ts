@@ -15,6 +15,11 @@ import {
 } from '@angular/common/http';
 import { GuardedComponent } from './pages/guarded/guarded.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { EmployeesComponent } from './pages/employees/employees.component';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+import { AddModalComponent } from './components/add-modal/add-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,18 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HomeComponent,
     NavComponent,
     GuardedComponent,
+    EmployeesComponent,
+    EditModalComponent,
+    AddModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    DialogModule,
+    ButtonModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

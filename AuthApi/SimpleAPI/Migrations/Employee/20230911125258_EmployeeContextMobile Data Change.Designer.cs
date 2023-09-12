@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleAPI.Models;
 
@@ -10,9 +11,11 @@ using SimpleAPI.Models;
 namespace SimpleAPI.Migrations.Employee
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20230911125258_EmployeeContextMobile Data Change")]
+    partial class EmployeeContextMobileDataChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,7 +38,7 @@ namespace SimpleAPI.Migrations.Employee
 
                     b.Property<string>("Mobile")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Name")
                         .IsRequired()

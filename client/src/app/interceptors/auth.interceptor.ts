@@ -15,11 +15,9 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log('Inside Interceptor');
     const urlsToExclude = [/login/gi, /register/gi];
     var matchFound = urlsToExclude.some((url) => url.test(request.url));
     if (!matchFound) {
-      console.log('Inside If in Interceptor');
       let token = localStorage.getItem('jwt');
       request = request.clone({
         setHeaders: {

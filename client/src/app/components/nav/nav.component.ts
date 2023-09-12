@@ -12,6 +12,6 @@ export class NavComponent {
 
   onLogout(){
     this.service.logOutUser();
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }

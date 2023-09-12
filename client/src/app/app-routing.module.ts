@@ -5,11 +5,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { GuardedComponent } from './pages/guarded/guarded.component';
 import { authGuardGuard } from './guard/auth-guard.guard';
+import { EmployeesComponent } from './pages/employees/employees.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: EmployeesComponent,
   },
   {
     path: 'login',

@@ -1,0 +1,74 @@
+<div *ngIf="service.addModal">
+  <div class="backdrop"></div>
+  <form #form="ngForm" ngClass="" (submit)="addEmployee(form)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add Employee</h2>
+        <i
+          class="fa-solid fa-xmark"
+          style="font-size: 20px"
+          (click)="closeAddModal()"
+          role="button"
+        ></i>
+      </div>
+      <div class="modal-body row gap-3">
+        <div ngClass="input-group">
+          <input
+            type="text"
+            ngClass="form-control"
+            placeholder="Name"
+            #name="ngModel"
+            name="name"
+            required
+            [(ngModel)]="newEmployee.name"
+          />
+        </div>
+        <div ngClass="input-group">
+          <input
+            type="text"
+            ngClass="form-control"
+            placeholder="Email"
+            #email="ngModel"
+            name="email"
+            required
+            [(ngModel)]="newEmployee.email"
+          />
+        </div>
+        <div ngClass="input-group">
+          <input
+            type="number"
+            ngClass="form-control"
+            placeholder="Salary"
+            #salary="ngModel"
+            name="salary"
+            required
+            [(ngModel)]="newEmployee.salary"
+          />
+        </div>
+        <div ngClass="input-group">
+          <input
+            type="text"
+            ngClass="form-control"
+            placeholder="Mobile"
+            #mobile="ngModel"
+            name="mobile"
+            minlength="10"
+            maxlength="10"
+            required
+            [(ngModel)]="newEmployee.mobile"
+          />
+        </div>
+      </div>
+      <div class="modal-footer mt-3">
+        <button type="submit" class="btn btn-secondary m-1">Add</button>
+        <button
+          type="button"
+          (click)="closeAddModal()"
+          class="btn btn-primary m-1"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

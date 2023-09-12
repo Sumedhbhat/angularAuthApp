@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiMiddlewearService } from 'src/app/services/api-middlewear.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
-import { apiMiddleWear } from 'src/middlewear/apiMiddlewear';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +8,7 @@ import { apiMiddleWear } from 'src/middlewear/apiMiddlewear';
 })
 export class HomeComponent implements OnInit {
   userAuth: boolean = true;
-  constructor(
-    public service: UserServiceService,
-    private authMiddleWear: ApiMiddlewearService
-  ) {}
+  constructor(public service: UserServiceService) {}
 
   ngOnInit(): void {
     this.service.checkUserAuth().subscribe({

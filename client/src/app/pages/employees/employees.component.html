@@ -1,0 +1,62 @@
+<div ngClass="titleBar">
+  <div
+    ngClass="row w-100 flex-nowrap justify-content-between align-items-center"
+  >
+    <div ngClass="display-5 col-7 flex-1">Employee Details</div>
+    <div ngClass="row col-5 align-items-end">
+      <div ngClass="flex-nowrap col">
+        <div ngClass="input-group">
+          <input type="text" ngClass="form-control" #search="ngModel" [(ngModel)]="this.query" (input)="searchQuery.next($event)" placeholder="Search" />
+        </div>
+      </div>
+      <div ngClass="col-2">
+        <button type="button" class="btn btn-primary"  (click)="showAddModel()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div ngClass="employeeTable mt-2" *ngIf="this.service.employees.length > 0; else noEmp">
+  <table class="table overflow-y-scroll">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of service.employees">
+        <td scope="row">{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>{{ employee.mobile }}</td>
+        <td>
+          <i
+            class="fa-solid fa-pen-to-square"
+            role="button"
+            (click)="showEditModal(employee)"
+          ></i>
+        </td>
+        <td>
+          <i
+            class="fa-solid fa-trash m-auto text-center"
+            role="button"
+            (click)="onDelete(employee.id)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-edit-modal [getAllEmployeeDetails]="getAllEmployeeData" />
+<app-add-modal [getAllEmployeeDetails]="getAllEmployeeData" />
+
+
+<ng-template #noEmp>
+  <p ngClass="h6 text-center">No employees found.</p>
+</ng-template>
