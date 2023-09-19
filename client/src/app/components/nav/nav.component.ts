@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserServiceService } from 'src/app/services/user-service.service';
+import { Component, Input } from '@angular/core';
+
+interface User {
+  name: string;
+}
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
-  constructor(private service:UserServiceService, private router:Router){}
+  @Input()
+  user: User | null = null;
+  constructor() {}
+  @Input()
+  onLogout: () => void;
 
-  onLogout(){
-    this.service.logOutUser();
-    this.router.navigate(['login']);
+  loggingOut() {
+    // this.onLogout();
+    console.log('logging out');
   }
 }

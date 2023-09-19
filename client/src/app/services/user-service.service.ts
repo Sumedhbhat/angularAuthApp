@@ -35,6 +35,7 @@ export class UserServiceService {
   }
 
   logOutUser() {
+    console.log('Called here');
     this.authorized = false;
     this.http.post(this.url + 'Logout', {});
     localStorage.removeItem('userInfo');

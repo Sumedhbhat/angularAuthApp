@@ -20,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { EditModalComponent } from './components/edit-modal/edit-modal.component';
 import { AddModalComponent } from './components/add-modal/add-modal.component';
+import { NavModule } from './components/nav/nav.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,6 @@ import { AddModalComponent } from './components/add-modal/add-modal.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    NavComponent,
     GuardedComponent,
     EmployeesComponent,
     EditModalComponent,
@@ -40,6 +40,7 @@ import { AddModalComponent } from './components/add-modal/add-modal.component';
     HttpClientModule,
     DialogModule,
     ButtonModule,
+    NavModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
